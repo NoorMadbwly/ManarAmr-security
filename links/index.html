@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Manar Amr Younes</title>
+<meta name="description" content="CV and LinkedIn for Manar Amr Younes, Cybersecurity Engineer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@500;600&family=IBM+Plex+Mono:wght@400;500&family=Unbounded:wght@700&display=swap">
+<style>
+:root {
+  --bg: #E8ECF2; --surface: #DDE3EC; --fg: #0F1B2D; --muted: #53627A;
+  --accent: #2447D6; --accent-ink: #F4F7FF; --line: #C3CCDA;
+  --font-display: 'Unbounded', 'Arial Black', system-ui, sans-serif;
+  --font-body: 'Figtree', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #0B1220; --surface: #131C2E; --fg: #E6ECF6; --muted: #93A1B8; --accent: #8CA6FF; --accent-ink: #0B1220; --line: #243049; color-scheme: dark; }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh; background: var(--bg); color: var(--fg);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.5;
+  display: flex; align-items: center; justify-content: center;
+  padding: 32px max(16px, env(safe-area-inset-right, 0px)) 32px max(16px, env(safe-area-inset-left, 0px));
+}
+main { width: 100%; max-width: 420px; display: flex; flex-direction: column; gap: 28px; }
+.id { display: flex; flex-direction: column; gap: 8px; }
+.mono { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: clamp(26px, 8vw, 34px); line-height: 1.1; letter-spacing: -0.02em; margin: 0; text-wrap: balance; }
+.role { font-family: var(--font-mono); font-size: 14px; color: var(--accent); margin: 0; }
+.choices { display: grid; gap: 14px; }
+.choice {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 12px;
+  text-decoration: none; padding: 20px 22px; border-radius: 12px; border: 1.5px solid var(--fg); background: transparent; color: var(--fg);
+}
+.choice.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.choice b { display: block; font-size: 19px; font-weight: 600; }
+.choice span { display: block; font-size: 14px; opacity: 0.8; }
+.choice i { font-style: normal; font-family: var(--font-mono); font-size: 20px; }
+.choice:active { transform: translateY(1px); }
+.more { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); text-decoration-color: var(--accent); text-underline-offset: 4px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+</style>
+</head>
+<body>
+<main>
+  <div class="id">
+    <span class="mono">Cairo, Egypt</span>
+    <h1>Manar Amr Younes</h1>
+    <p class="role">Cybersecurity Engineer</p>
+  </div>
+  <div class="choices">
+    <a class="choice primary" href="https://drive.google.com/file/d/19s840FLRJkZ6Bn9i8Od1C79nrBmG5ps-/view?usp=sharing">
+      <div><b>View my CV</b><span>Opens on Google Drive</span></div><i>&rarr;</i>
+    </a>
+    <a class="choice" href="https://www.linkedin.com/in/manaramr/">
+      <div><b>LinkedIn</b><span>linkedin.com/in/manaramr</span></div><i>&rarr;</i>
+    </a>
+  </div>
+  <a class="more" href="../">See the full portfolio</a>
+</main>
+</body>
+</html>

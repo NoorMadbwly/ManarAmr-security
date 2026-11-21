@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Manar Amr Younes</title>
+<meta name="description" content="Manar Amr Younes, Cybersecurity Engineer in Cairo. Blue Team monitoring, vulnerability assessment and penetration testing, network security.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Unbounded:wght@500;700&display=swap">
+<style>
+/* Layout: split hero (name + summary left, framed portrait right), then experience ledger, project cards with a network diagram, skills grid, certificates, contact. */
+:root {
+  --bg: #E8ECF2;
+  --surface: #DDE3EC;
+  --fg: #0F1B2D;
+  --muted: #53627A;
+  --accent: #2447D6;
+  --accent-ink: #F4F7FF;
+  --signal: #D9480F;
+  --line: #C3CCDA;
+  --font-display: 'Unbounded', 'Arial Black', system-ui, sans-serif;
+  --font-body: 'Figtree', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0B1220;
+    --surface: #131C2E;
+    --fg: #E6ECF6;
+    --muted: #93A1B8;
+    --accent: #8CA6FF;
+    --accent-ink: #0B1220;
+    --signal: #FF8A4C;
+    --line: #243049;
+    color-scheme: dark;
+  }
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  padding-block: 0 48px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+img { max-width: 100%; }
+.wrap { max-width: 1040px; margin-inline: auto; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+.mono { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+
+/* top bar */
+.bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 20px; border-bottom: 1px solid var(--line); }
+.bar .name { font-family: var(--font-display); font-weight: 700; font-size: 14px; text-decoration: none; letter-spacing: 0.01em; }
+.bar nav { display: flex; gap: 20px; flex-wrap: wrap; justify-content: flex-end; }
+.bar nav a { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; color: var(--muted); }
+.bar nav a:hover { color: var(--fg); }
+
+/* hero */
+.hero { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); gap: 56px; align-items: center; padding-block: 56px 64px; }
+.hero h1 { font-family: var(--font-display); font-weight: 700; font-size: clamp(32px, 5.6vw, 58px); line-height: 1.08; letter-spacing: -0.02em; margin: 14px 0 10px; text-wrap: balance; }
+.role { font-family: var(--font-mono); font-size: 15px; color: var(--accent); margin: 0 0 22px; }
+.hero p.lead { max-width: 56ch; color: var(--muted); font-size: 17px; margin: 0; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.btn { display: inline-block; text-decoration: none; font-weight: 600; font-size: 15px; padding: 12px 20px; border-radius: 8px; border: 1.5px solid var(--fg); }
+.btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.btn:hover { transform: translateY(-1px); }
+.facts { display: grid; grid-template-columns: repeat(4, auto); justify-content: start; gap: 0; margin: 36px 0 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+.facts li { padding: 14px 24px 0 0; margin-right: 24px; border-right: 1px solid var(--line); }
+.facts li:last-child { border-right: 0; margin-right: 0; }
+.facts b { display: block; font-family: var(--font-mono); font-size: 18px; font-weight: 500; color: var(--fg); }
+.facts span { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+
+/* portrait with viewfinder corners */
+.portrait-col { display: flex; justify-content: center; }
+.portrait { position: relative; width: 100%; max-width: 340px; aspect-ratio: 4 / 5; }
+.portrait .frame { position: absolute; inset: 0; border-radius: 6px; overflow: hidden; background: var(--surface); }
+.portrait img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.portrait svg.mono-art { display: block; width: 100%; height: 100%; }
+.portrait::before, .portrait::after {
+  content: ""; position: absolute; width: 44px; height: 44px; border: 3px solid var(--accent); pointer-events: none; z-index: 2;
+}
+.portrait::before { top: -12px; left: -12px; border-right: 0; border-bottom: 0; }
+.portrait::after { bottom: -12px; right: -12px; border-left: 0; border-top: 0; }
+.portrait .tag-loc { position: absolute; left: 12px; bottom: 12px; z-index: 3; background: var(--bg); color: var(--fg); padding: 4px 8px; border-radius: 4px; }
+
+/* sections */
+section { padding-block: 56px; border-top: 1px solid var(--line); }
+section > .head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 28px; }
+section h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(20px, 3.2vw, 28px); letter-spacing: -0.01em; margin: 0; }
+
+.ledger { list-style: none; margin: 0; padding: 0; }
+.ledger > li { display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 8px 32px; padding-block: 28px; border-top: 1px solid var(--line); }
+.ledger > li:first-child { border-top: 0; padding-top: 0; }
+.ledger h3 { font-size: 19px; font-weight: 600; margin: 0 0 2px; }
+.ledger .org { color: var(--muted); margin: 0 0 12px; }
+ul.points { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+ul.points li { position: relative; padding-left: 22px; }
+ul.points li::before { content: ""; position: absolute; left: 0; top: 0.72em; width: 10px; height: 2px; background: var(--accent); }
+
+.cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.card { background: var(--surface); border-radius: 12px; padding: 26px; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.card.wide { grid-column: 1 / -1; }
+.card h3 { font-family: var(--font-display); font-weight: 700; font-size: 18px; line-height: 1.3; margin: 0; letter-spacing: -0.01em; }
+.card .row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.badge { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; background: var(--signal); color: var(--bg); padding: 3px 8px; border-radius: 4px; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.tag { font-family: var(--font-mono); font-size: 12px; border: 1px solid var(--line); padding: 4px 10px; border-radius: 999px; color: var(--fg); background: transparent; }
+.card .tags { margin-top: auto; padding-top: 6px; }
+.diagram { overflow-x: auto; margin: 4px 0 4px; }
+.diagram svg { display: block; width: 100%; min-width: 520px; height: auto; }
+.n-box { fill: var(--bg); stroke: var(--fg); stroke-width: 1.4; }
+.n-fw { fill: var(--accent); stroke: var(--accent); }
+.n-dmz { fill: none; stroke: var(--signal); stroke-width: 1.4; stroke-dasharray: 4 4; }
+.n-link { stroke: var(--muted); stroke-width: 1.4; fill: none; }
+.n-vpn { stroke: var(--accent); stroke-width: 2; stroke-dasharray: 6 5; fill: none; }
+.n-txt { font-family: var(--font-mono); font-size: 10.5px; fill: var(--fg); }
+.n-sub { font-family: var(--font-mono); font-size: 9px; fill: var(--muted); letter-spacing: 0.04em; }
+.n-ink { font-family: var(--font-mono); font-size: 10.5px; fill: var(--accent-ink); }
+
+.skills { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px 28px; }
+.skills h3 { font-size: 15px; font-weight: 600; margin: 0 0 12px; }
+
+.certs { list-style: none; margin: 0; padding: 0; }
+.certs li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px; padding-block: 14px; border-top: 1px solid var(--line); }
+.certs li:last-child { border-bottom: 1px solid var(--line); }
+.certs b { font-weight: 600; }
+.certs span.org { color: var(--muted); }
+
+.two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; }
+.two h3 { font-size: 19px; font-weight: 600; margin: 0 0 2px; }
+.two p { margin: 0; color: var(--muted); }
+
+.contact > p { max-width: 54ch; color: var(--muted); font-size: 17px; margin: 0 0 22px; }
+.links { list-style: none; margin: 0; padding: 0; max-width: 620px; }
+.links li { display: grid; grid-template-columns: 90px minmax(0, 1fr) auto; align-items: center; gap: 12px; padding-block: 14px; border-top: 1px solid var(--line); }
+.links li:last-child { border-bottom: 1px solid var(--line); }
+.links .val, .links a { font-size: 17px; font-weight: 500; overflow-wrap: anywhere; }
+.links a { text-decoration-color: var(--accent); text-underline-offset: 4px; }
+.copy { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; background: transparent; color: var(--fg); border: 1.5px solid var(--fg); padding: 7px 12px; border-radius: 6px; cursor: pointer; }
+.copy:hover { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+footer { padding-top: 32px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+
+@media (max-width: 800px) {
+  .hero { grid-template-columns: minmax(0, 1fr); gap: 44px; padding-block: 36px 48px; }
+  .portrait { max-width: 280px; }
+  .portrait-col { order: 2; }
+  .facts { grid-template-columns: repeat(2, auto); row-gap: 14px; }
+  .facts li:nth-child(2) { border-right: 0; margin-right: 0; }
+  .ledger > li { grid-template-columns: minmax(0, 1fr); }
+  .cards, .skills, .two { grid-template-columns: minmax(0, 1fr); }
+  .card.wide { grid-column: auto; }
+}
+@media (max-width: 480px) {
+  .links li { grid-template-columns: minmax(0, 1fr) auto; }
+  .links li > .mono { grid-column: 1 / -1; margin-bottom: -6px; }
+  .bar nav { gap: 14px; }
+  .certs li { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn:hover { transform: none; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="bar">
+    <a class="name" href="#top">Manar Amr Younes</a>
+    <nav aria-label="Sections">
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <div class="hero">
+      <div>
+        <span class="mono">Cairo, Egypt</span>
+        <h1>Manar Amr Younes</h1>
+        <p class="role">Cybersecurity Engineer · Blue Team</p>
+        <p class="lead">Computer Networks Engineering graduate with strong knowledge in cloud computing, networking, and system support. Hands-on experience in monitoring and troubleshooting across Linux and Windows environments. Skilled in TCP/IP, LAN environments, AWS, and network configuration, with practical exposure to system logs and performance analysis. Seeking a Blue Team Cybersecurity role to apply problem-solving skills in maintaining reliable and efficient systems.</p>
+        <div class="cta">
+          <a class="btn primary" href="https://drive.google.com/file/d/19s840FLRJkZ6Bn9i8Od1C79nrBmG5ps-/view?usp=sharing" target="_blank" rel="noopener">View CV</a>
+          <a class="btn" href="https://www.linkedin.com/in/manaramr/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <ul class="facts" aria-label="Highlights">
+          <li><b>3.76</b><span>GPA</span></li>
+          <li><b>2</b><span>Security internships</span></li>
+          <li><b>2025</b><span>Patent awarded</span></li>
+          <li><b>6</b><span>Certificates</span></li>
+        </ul>
+      </div>
+
+      <div class="portrait-col">
+        <div class="portrait">
+          <div class="frame">
+            <!--PHOTO-->
+            <svg class="mono-art" viewBox="0 0 320 400" role="img" aria-label="Initials MA" xmlns="http://www.w3.org/2000/svg">
+              <rect width="320" height="400" fill="var(--surface)"/>
+              <text x="160" y="228" text-anchor="middle" font-family="Unbounded, sans-serif" font-weight="700" font-size="96" fill="var(--accent)">MA</text>
+            </svg>
+          </div>
+          <span class="mono tag-loc">Cairo, EG</span>
+        </div>
+      </div>
+    </div>
+
+    <section id="experience">
+      <div class="head"><h2>Experience</h2><span class="mono">Newest first</span></div>
+      <ul class="ledger">
+        <li>
+          <span class="mono">Dec 2025 – Apr 2026</span>
+          <div>
+            <h3>Blue Team Cybersecurity Intern</h3>
+            <p class="org">National Telecommunication Institute (NTI) · Intensive Training Program</p>
+            <ul class="points">
+              <li>Performed security monitoring and log analysis using Splunk SIEM, applying log correlation, alert triage, and threat detection workflows.</li>
+              <li>Gained hands-on experience in incident response and system monitoring across Linux and Windows with basic security hardening.</li>
+              <li>Provided technical support and troubleshooting for system and network issues in lab environments.</li>
+              <li>Applied network security concepts (CCNA, Network+, A+, firewalls, IDS/IPS, VPNs) and worked with AWS cloud services and container technologies (Docker, Kubernetes).</li>
+              <li>Developed YARA rules for malware detection and gained exposure to threat hunting, cryptography, PKI, and vulnerability management.</li>
+              <li>Conducted hands-on labs using virtual machines and network simulation tools.</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <span class="mono">Jun 2025 – Dec 2025</span>
+          <div>
+            <h3>Vulnerability Assessment &amp; Penetration Testing Intern</h3>
+            <p class="org">Digital Egypt Pioneers Initiative (DEPI) · Infrastructure and Security Track</p>
+            <ul class="points">
+              <li>Conducted web application security testing using Burp Suite (PortSwigger Labs and OWASP Juice Shop), identifying common vulnerabilities.</li>
+              <li>Performed vulnerability analysis and basic penetration testing across Linux and Windows environments using tools such as Nmap, Metasploit, and John the Ripper.</li>
+              <li>Carried out reconnaissance and service enumeration to analyze target systems and identify potential weaknesses.</li>
+              <li>Conducted Android application security testing using DIVA, JADX, and emulators to identify insecure code and data exposure.</li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section id="projects">
+      <div class="head"><h2>Projects</h2></div>
+      <div class="cards">
+        <article class="card wide">
+          <div class="row"><span class="mono">NTI · Final project</span></div>
+          <h3>Enterprise Network Security Implementation</h3>
+          <div class="diagram" role="group" aria-label="Simplified schematic">
+            <svg viewBox="0 0 640 228" role="img" aria-label="Diagram: two branch networks with VLANs joined by a site-to-site IPSec VPN through edge routers, with a Cisco ASA firewall and DMZ">
+              <rect class="n-box" x="12" y="40" width="150" height="130" rx="6"/>
+              <text class="n-txt" x="24" y="62">Branch A</text>
+              <text class="n-sub" x="24" y="86">VLAN per department</text>
+              <text class="n-sub" x="24" y="106">Isolated segments</text>
+              <text class="n-sub" x="24" y="152">IPv4 / IPv6 · OSPF</text>
+
+              <rect class="n-box" x="478" y="40" width="150" height="130" rx="6"/>
+              <text class="n-txt" x="490" y="62">Branch B</text>
+              <text class="n-sub" x="490" y="86">VLAN per department</text>
+              <text class="n-sub" x="490" y="106">Isolated segments</text>
+              <text class="n-sub" x="490" y="152">IPv4 / IPv6 · OSPF</text>
+
+              <rect class="n-dmz" x="230" y="12" width="180" height="186" rx="8"/>
+              <text class="n-sub" x="240" y="30">DMZ</text>
+
+              <rect class="n-box" x="238" y="80" width="62" height="40" rx="5"/>
+              <text class="n-txt" x="269" y="104" text-anchor="middle">Edge R1</text>
+              <rect class="n-box" x="340" y="80" width="62" height="40" rx="5"/>
+              <text class="n-txt" x="371" y="104" text-anchor="middle">Edge R2</text>
+
+              <rect class="n-fw" x="283" y="138" width="74" height="32" rx="5"/>
+              <text class="n-ink" x="320" y="158" text-anchor="middle">Cisco ASA</text>
+
+              <path class="n-link" d="M162 100 H238"/>
+              <path class="n-link" d="M402 100 H478"/>
+              <path class="n-link" d="M269 120 V132 H320 V138"/>
+              <path class="n-link" d="M371 120 V132 H320"/>
+              <path class="n-vpn" d="M300 100 H340"/>
+              <text class="n-sub" x="320" y="72" text-anchor="middle">Site-to-Site IPSec VPN</text>
+              <text class="n-sub" x="320" y="221" text-anchor="middle">NAT/PAT · ZPF · AAA/RBAC · IPS · Syslog · NTP</text>
+            </svg>
+          </div>
+          <ul class="points">
+            <li>Built a secure multi-branch enterprise network with VLAN segmentation for departmental isolation.</li>
+            <li>Configured IPv4/IPv6 addressing and OSPF routing for reliable, secure connectivity. Deployed Cisco ASA firewall with DMZ, NAT/PAT, and ZPF on edge routers to protect the network perimeter.</li>
+            <li>Established Site-to-Site IPSec VPN for encrypted branch-to-branch communication. Implemented AAA with RBAC and IPS for proactive threat detection and access control.</li>
+            <li>Enabled centralized monitoring via Syslog and NTP for network visibility and accurate time sync.</li>
+          </ul>
+          <p class="mono" style="margin:0">Simplified schematic of the design</p>
+          <div class="tags"><span class="tag">Cisco ASA</span><span class="tag">OSPF</span><span class="tag">IPSec VPN</span><span class="tag">VLANs</span><span class="tag">Packet Tracer</span></div>
+        </article>
+
+        <article class="card">
+          <div class="row"><span class="mono">DEPI · Final project</span></div>
+          <h3>OWASP Juice Shop: Web Application Penetration Testing</h3>
+          <p style="margin:0;color:var(--muted)">Identified and exploited more than 10 web application vulnerabilities, including XSS, CSRF, access control flaws, sensitive data exposure, and API vulnerabilities using Burp Suite and manual testing aligned with OWASP Top 10.</p>
+          <div class="tags"><span class="tag">Burp Suite</span><span class="tag">OWASP Top 10</span><span class="tag">XSS</span><span class="tag">CSRF</span></div>
+        </article>
+
+        <article class="card">
+          <div class="row"><span class="mono">Graduation project</span><span class="badge">Patent awarded · 2025</span></div>
+          <h3>Radiation-Free Scoliosis Tracking using Python and AI</h3>
+          <p style="margin:0;color:var(--muted)">Developed an AI-based system using YOLOv8 to detect spinal landmarks and reconstruct a 3D spine model. Designed the system to measure scoliosis metrics without radiation exposure.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">YOLOv8</span><span class="tag">3D reconstruction</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="head"><h2>Core skills</h2></div>
+      <div class="skills">
+        <div>
+          <h3>Security operations</h3>
+          <div class="tags"><span class="tag">SIEM monitoring</span><span class="tag">Log analysis &amp; incident investigation</span><span class="tag">Threat detection &amp; incident response</span><span class="tag">Malware detection &amp; YARA rules</span><span class="tag">Cryptography fundamentals</span><span class="tag">Incident management &amp; resolution</span></div>
+        </div>
+        <div>
+          <h3>Networking &amp; security</h3>
+          <div class="tags"><span class="tag">TCP/IP, routing &amp; switching</span><span class="tag">VLANs, subnetting, segmentation</span><span class="tag">Firewalls, VPNs, IDS/IPS</span><span class="tag">ACLs, NAT, network defense</span><span class="tag">Technical support &amp; troubleshooting</span><span class="tag">System &amp; network monitoring</span></div>
+        </div>
+        <div>
+          <h3>Tools &amp; technologies</h3>
+          <div class="tags"><span class="tag">Splunk</span><span class="tag">Burp Suite</span><span class="tag">Nmap</span><span class="tag">Metasploit</span><span class="tag">John the Ripper</span><span class="tag">Packet Tracer</span></div>
+        </div>
+        <div>
+          <h3>Operating systems</h3>
+          <div class="tags"><span class="tag">Linux administration &amp; security hardening</span><span class="tag">Windows security &amp; system monitoring</span></div>
+        </div>
+        <div>
+          <h3>Cloud &amp; virtualization</h3>
+          <div class="tags"><span class="tag">AWS (EC2, VPC, IAM, Security Groups)</span><span class="tag">Azure fundamentals</span><span class="tag">Docker</span><span class="tag">Kubernetes</span></div>
+        </div>
+        <div>
+          <h3>Soft skills</h3>
+          <div class="tags"><span class="tag">Problem-solving &amp; analytical thinking</span><span class="tag">Communication &amp; teamwork</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="certificates">
+      <div class="head"><h2>Certificates</h2></div>
+      <ul class="certs">
+        <li><div><b>Vulnerability Analyst &amp; Penetration Tester Track</b> <span class="org">· Digital Egypt Pioneers Initiative (DEPI)</span></div><span class="mono">2025</span></li>
+        <li><div><b>CCNAv7: Introduction to Networks</b> <span class="org">· Cisco Networking Academy</span></div><span class="mono">Aug 2024</span></li>
+        <li><div><b>Network Defense</b> <span class="org">· Cisco</span></div><span class="mono">May 2023</span></li>
+        <li><div><b>Cyber Threat Management</b> <span class="org">· Cisco</span></div><span class="mono">May 2023</span></li>
+        <li><div><b>Introduction to Cybersecurity</b> <span class="org">· Cisco</span></div><span class="mono">Apr 2023</span></li>
+        <li><div><b>CompTIA Linux+</b> <span class="org">· InfoSec</span></div><span class="mono">May 2023</span></li>
+        <li><div><b>Identity and Access Management</b> <span class="org">· InfoSec</span></div><span class="mono">May 2022</span></li>
+      </ul>
+    </section>
+
+    <section id="education">
+      <div class="head"><h2>Education &amp; languages</h2></div>
+      <div class="two">
+        <div>
+          <span class="mono">2022 – 2025</span>
+          <h3>B.Sc. in Computer Science, Computer Networks Engineering</h3>
+          <p>Ahram Canadian University (ACU) · GPA 3.76 (Excellent)</p>
+        </div>
+        <div>
+          <span class="mono">Languages</span>
+          <h3>Arabic · English</h3>
+          <p>Arabic: native. English: upper-intermediate.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="head"><h2>Contact</h2></div>
+      <p>Open to Blue Team cybersecurity roles. The fastest way to reach me is by email or LinkedIn.</p>
+      <ul class="links">
+        <li>
+          <span class="mono">Email</span>
+          <a href="mailto:manar.amr03@gmail.com" id="email">manar.amr03@gmail.com</a>
+          <button type="button" class="copy" data-copy="manar.amr03@gmail.com">Copy</button>
+        </li>
+        <li>
+          <span class="mono">Phone</span>
+          <span class="val">+20 10 2755 3632</span>
+          <button type="button" class="copy" data-copy="+201027553632">Copy</button>
+        </li>
+        <li>
+          <span class="mono">LinkedIn</span>
+          <a href="https://www.linkedin.com/in/manaramr/" target="_blank" rel="noopener">linkedin.com/in/manaramr</a>
+          <span></span>
+        </li>
+        <li>
+          <span class="mono">CV</span>
+          <a href="https://drive.google.com/file/d/19s840FLRJkZ6Bn9i8Od1C79nrBmG5ps-/view?usp=sharing" target="_blank" rel="noopener">View my CV on Google Drive</a>
+          <span></span>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <span class="mono">Manar Amr Younes</span>
+    <span class="mono">Cairo, Egypt</span>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var buttons = document.querySelectorAll('.copy');
+  Array.prototype.forEach.call(buttons, function (btn) {
+    btn.addEventListener('click', function () {
+      var text = btn.getAttribute('data-copy');
+      var done = function (label) { btn.textContent = label; setTimeout(function () { btn.textContent = 'Copy'; }, 1800); };
+      var fallback = function () {
+        var cell = btn.previousElementSibling;
+        if (cell && window.getSelection) {
+          var r = document.createRange(); r.selectNodeContents(cell);
+          var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        }
+        done('Selected');
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () { done('Copied'); }, fallback);
+      } else { fallback(); }
+    });
+  });
+})();
+</script>
+</body>
+</html>
